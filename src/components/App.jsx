@@ -1,5 +1,6 @@
 import React from "react";
 import LiItem from './LiItem';
+import InputArea from "./InputArea";
 import '../styles/styles.scss';
 
 function App() {
@@ -30,12 +31,7 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <div className="form">
-        <input onChange={handleChange} type="text" />
-        <button onClick={handleClick}>
-          <span>Add</span>
-        </button>
-      </div>
+      <InputArea clicked={handleClick} changed={handleChange}/>
       <div>
         <ul>
         {listItems.map(function (liItem, index) { 
