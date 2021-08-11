@@ -1,4 +1,6 @@
 import React from "react";
+import LiItem from './LiItem';
+import '../styles/styles.scss';
 
 function App() {
 
@@ -15,6 +17,14 @@ function App() {
     })
   }
 
+  function deleteToDo(id) {
+    setItems(prev => {
+      return prev.filter((li, index) => {
+        return index !== id;
+      })
+    })
+  }
+
   return (
     <div className="container">
       <div className="heading">
@@ -28,9 +38,8 @@ function App() {
       </div>
       <div>
         <ul>
-        {listItems.map(function (liItem) {
-          if (liItem != "") {
-          return <li>{liItem} </li>;}})}
+        {listItems.map(function (liItem, index) { 
+         return  liItem !== "" ? <LiItem key={index} id={index} text={liItem} deleteItem={deleteToDo}/> : null })}
         </ul>
       </div>
     </div>
