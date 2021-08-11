@@ -7,7 +7,10 @@ function LiItem(props) {
   function addLineThrough() {
     setLineThrough(lineThrough ? false : true);
   }
-  return <div className="listItem"><li style={lineThrough ? haslineThrough : noLineThrough} onClick={addLineThrough}>{props.text}</li><span className="closeBtn" onClick={ () => props.deleteItem(props.id)}>X</span></div>;
+  return <div className="listItem">
+    <li style={lineThrough ? haslineThrough : noLineThrough} onClick={addLineThrough}>{props.text}</li>
+    <span className="closeBtn" onClick={ () => props.deleteItem(props.id)}>X</span>
+  </div>;
 }
 
 export default LiItem;
